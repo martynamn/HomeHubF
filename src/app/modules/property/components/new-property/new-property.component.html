@@ -1,0 +1,70 @@
+<form nz-form [formGroup]="propertyForm">
+  <div class="form">
+    <div class="form-item-container" *ngFor="let control of PropertyFormControls">
+      <nz-form-item class="form-item">
+        <nz-form-label [nzRequired]="true">{{control.title}}</nz-form-label>
+        <nz-form-control [nzErrorTip]="nameAndSurnameErrorHandler" [ngSwitch]="control.type">
+          <input *ngSwitchCase="'text'" type="text" [formControlName]="control.formControlName" [placeholder]="control.placeholder" nz-input/>
+          <input *ngSwitchCase="'number'" type="number" [formControlName]="control.formControlName" [placeholder]="control.placeholder" min="0" nz-input/>
+        </nz-form-control>
+        <ng-template #nameAndSurnameErrorHandler>
+          <span>{{control.error}}</span>
+        </ng-template>
+      </nz-form-item>
+    </div>
+
+    <div class="form-item-container select">
+      <nz-form-item class="form-item">
+        <nz-form-label [nzRequired]="true">{{'Type of building' | translate }}</nz-form-label>
+        <nz-select nzAllowClear [nzShowSearch]="true" [nzPlaceHolder]="'Add the type of building'" class="select" formControlName="type">
+          <nz-option nzValue="house" nzLabel="House"></nz-option>
+          <nz-option nzValue="flat" nzLabel="Flat"></nz-option>
+        </nz-select>
+      </nz-form-item>
+    </div>
+    <div class="form-item-container select">
+      <nz-form-item class="form-item">
+        <nz-form-label [nzRequired]="true">{{'Add the type of the advertisement' | translate }}</nz-form-label>
+        <nz-select nzAllowClear [nzShowSearch]="true" [nzPlaceHolder]="'type'" class="select" formControlName="adType">
+          <nz-option nzValue="sale" nzLabel="Sale"></nz-option>
+          <nz-option nzValue="rent" nzLabel="Rent"></nz-option>
+        </nz-select>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <nz-form-item class="description">
+    <nz-form-label [nzRequired]="true">{{'Description' | translate }}</nz-form-label>
+    <textarea nz-input placeholder="Add description" formControlName="description" [nzAutosize]="{ minRows: 3, maxRows: 5 }"></textarea>
+  </nz-form-item>
+</form>
+
+<nz-upload
+  nzType="drag"
+  [(nzFileList)]="fileList"
+  nzListType="picture"
+  [nzFileType]="AccepterFileTypes"
+  [nzAccept]="AccepterFileTypes"
+  [nzMultiple]="true"
+  [nzBeforeUpload]="beforeUpload"
+>
+<div class="upload-container">
+  <img class="upload-icon" [src]="IconPath.UPLOAD" alt="upload" />
+  <div class="">
+    <p class="ant-upload-text"
+      ><span>{{ 'Drag and drop image here' | translate }} </span>
+    </p>
+    <p class="ant-upload-hint">
+      {{ 'SVG, PNG, JPG, JPEG (add minimum 4 files)' | translate }}
+    </p>
+  </div>
+</div>
+</nz-upload>
+<div class="buttons">
+  <button class="cancel" nz-button (click)="navigationBack()">
+    {{ 'Cancel' | translate }}
+  </button>
+  <button class="save" nz-button nzType="primary" [disabled]="!propertyForm.valid || fileList.length < 4"  (click)="handlePropertySave.emit(fileList)">
+    {{ 'Save' | translate }}
+  </button>
+</div>

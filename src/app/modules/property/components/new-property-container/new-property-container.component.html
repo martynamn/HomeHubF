@@ -1,0 +1,7 @@
+<h2 *ngIf="!propertyId" class="title">{{ 'Add New Property' | translate }}</h2>
+<h2 *ngIf="propertyId" class="title">{{ 'Edit New Property' | translate }}</h2>
+<div class="container">
+  <h3 class="subtitle">{{ 'Property details' | translate }}</h3>
+  <app-new-property [propertyForm]="propertyForm" (handlePropertySave)="handleFormSave($event)">
+  </app-new-property>
+</div>

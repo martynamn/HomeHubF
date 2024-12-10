@@ -1,0 +1,20 @@
+.filter-container {
+  padding: 1rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-start;
+
+  .select,
+  input {
+    width: 145px;
+  }
+}
+
+::ng-deep .ant-skeleton-element .ant-skeleton-input,
+.skeleton-element {
+  width: 145px !important;
+  min-width: 145px !important;
+  min-height: 42px !important;
+}

@@ -1,0 +1,28 @@
+<div *ngIf="property$ | async as property">
+  <div class="header">
+    <a nz-button nzType="text" class="title" [routerLink]="'../'">
+      <span nz-icon nzType="left" nzTheme="outline"></span>
+      {{'Details' | translate}}
+    </a>
+    <ng-container *ngIf="userId === property.userId">
+      <div class="buttons">
+        <button nz-button nz-tooltip nzSize="large"
+          nzTooltipTitle="{{ 'Edit this property' | translate }}"
+          nzTooltipPlacement="topRight" (click)="editProperty()" nzType="link">
+          <span class="icon" nz-icon nzType="edit" nzTheme="outline"></span>
+        </button>
+        <button nz-button nz-tooltip nzSize="large"
+          nzTooltipTitle="{{ 'Mark as sold/rented' | translate }}"
+          nzTooltipPlacement="topRight" (click)="soldProperty(property)" nzType="link">
+          <span class="icon" nz-icon nzType="dollar" nzTheme="outline"></span>
+        </button>
+        <button nz-button nz-tooltip nzSize="large"
+          nzTooltipTitle="{{ 'Remove this property' | translate }}"
+          nzTooltipPlacement="topRight" (click)="deleteProperty(property)" nzType="link" nzDanger>
+          <span class="icon" nz-icon nzType="delete" nzTheme="outline"></span>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+  <app-details-property [property]="property"></app-details-property>
+</div>

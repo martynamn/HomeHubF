@@ -1,0 +1,48 @@
+<div class="container">
+
+  <div class="title-wrapper">
+    <h3 class="title">{{ property.title }}</h3>
+    <p class="price">${{ property.price | pricePipe }}</p>
+  </div>
+  <div class="main-info">
+    <div class="location-container">
+      <img class="icon" [src]="IconPath.LOCATION"/>
+      <p class="location">{{property.address.city}}, {{property.address.country}}</p>
+    </div>
+      <span class="square-price">{{ (property.price / property.address.area).toFixed(0) }} $/m<sup>2</sup></span>
+  </div>
+  <div class="phone">
+    <img class="icon" [src]="IconPath.TELEPHONE"/>
+    <p *ngIf="isNumberVisible" class="description"> {{property.telephoneNumber | phonePipe}}</p>
+    <p *ngIf="!isNumberVisible" class="phone-description" (click)="isNumberVisible = true">{{'Show number' | translate}}</p>
+  </div>
+  <div class="tile-details">
+    <div class="details-content">
+      <img class="icon" [src]="IconPath.AREA"/>
+      <p class="field-name">{{ 'Area' | translate }}: </p>
+      <p class="description"> {{property.address.area}}</p>
+    </div>
+    <div class="details-content">
+      <img class="icon" [src]="IconPath.BED"/>
+      <p class="field-name">{{ 'Rooms' | translate }}: </p>
+      <p class="description"> {{property.rooms}}</p>
+    </div>
+    <div class="details-content">
+      <img class="icon" [src]="IconPath.FLOOR"/>
+      <p class="field-name">{{ 'Floors' | translate }}: </p>
+      <p class="description"> {{property.address.floor}}</p>
+    </div>
+    <div class="details-content">
+      <img class="icon" [src]="IconPath.TYPE"/>
+      <p class="field-name">{{ 'Type of ad' | translate }}: </p>
+      <p class="description"> {{ property.adType }} </p>
+    </div>
+    <div class="details-content">
+      <span class="home-icon" nz-icon nzType="home" nzTheme="outline"></span> <span
+      class="field-name"> {{ 'Type of building' | translate }}: </span>
+      <p class="description"> {{property.type}}</p>
+    </div>
+  </div>
+  <h3 class="title">Description</h3>
+  <p class="description-text">{{ property.description }}</p>
+</div>

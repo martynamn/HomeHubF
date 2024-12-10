@@ -1,0 +1,17 @@
+.property-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(470px, 1fr));
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pagination{
+  padding: .5rem 1rem;
+  text-align: end;
+}
+
+@media (max-width: 620px) { 
+  .property-container{
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+}

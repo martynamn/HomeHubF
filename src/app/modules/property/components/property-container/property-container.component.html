@@ -1,0 +1,26 @@
+<div class="title-container">
+  <h2 class="title">{{ 'Property List' | translate }}</h2>
+  <button class="new-property" nz-button nzType="primary" routerLink="/property/new">
+    <i nz-icon nzType="plus"></i>
+    {{ 'Add Property' | translate }}
+  </button>
+</div>
+<div class="container">
+  <app-filter (filterChanged)="handleFilterChanged($event)"></app-filter>
+  <ng-container *ngIf="paginationLength$ | async as propertiesLength">
+    <ng-container *ngIf="properties$ | async as properties; else loading">
+      <app-property-card (filterChanged)="handleFilterChanged($event)" [properties]="properties"></app-property-card>
+      <nz-pagination 
+        [nzPageIndex]="pageIndex" 
+        [nzTotal]="propertiesLength" 
+        nzShowSizeChanger 
+        [nzPageSize]="pageSize"
+        (nzPageIndexChange)="pageIndex = $event; handlePaginationChange()"
+        (nzPageSizeChange)="pageSize = $event; handlePaginationChange()"
+      ></nz-pagination>
+    </ng-container>
+  </ng-container>
+  <ng-template #loading>
+    <nz-spin class="loader" nzSize="large" nzSimple></nz-spin>
+  </ng-template>
+</div>

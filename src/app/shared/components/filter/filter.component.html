@@ -1,0 +1,45 @@
+<div class="filter-container">
+  <nz-select *ngIf="filters?.type; else loading" nzAllowClear [nzShowSearch]="true" [nzPlaceHolder]="'Type'"
+    class="select" [ngModel]="filter" (ngModelChange)="handleFilterChange('type', $event)">
+    <nz-option *ngFor="let type of filters?.type" [nzValue]="type" [nzLabel]="type"></nz-option>
+  </nz-select>
+
+  <nz-select *ngIf="filters?.adType; else loading" nzAllowClear [nzShowSearch]="true" [nzPlaceHolder]="'Ad Type'"
+    class="select" [ngModel]="filter" (ngModelChange)="handleFilterChange('ad_type', $event)">
+    <nz-option *ngFor="let adType of filters?.adType" [nzValue]="adType" [nzLabel]="adType"></nz-option>
+  </nz-select>
+
+  <nz-select *ngIf="filters?.country; else loading" nzAllowClear [nzShowSearch]="true" [nzPlaceHolder]="'Country'"
+    class="select" [ngModel]="filter" (ngModelChange)="handleFilterChange('country', $event)">
+    <nz-option *ngFor="let country of filters?.country" [nzValue]="country" [nzLabel]="country"></nz-option>
+  </nz-select>
+
+  <nz-select *ngIf="filters?.city; else loading" nzAllowClear [nzShowSearch]="true" [nzPlaceHolder]="'City'"
+    class="select" [ngModel]="filter" (ngModelChange)="handleFilterChange('city', $event)">
+    <nz-option *ngFor="let city of filters?.city" [nzValue]="city" [nzLabel]="city"></nz-option>
+  </nz-select>
+
+
+  <nz-select *ngIf="filters?.floor; else loading" nzAllowClear [nzShowSearch]="true" [nzPlaceHolder]="'Floor'"
+    class="select" [ngModel]="filter" (ngModelChange)="handleFilterChange('floor', $event)">
+    <nz-option *ngFor="let floor of filters?.floor" [nzValue]="floor" [nzLabel]="floor"></nz-option>
+  </nz-select>
+
+  <nz-select *ngIf="filters?.rooms; else loading" nzAllowClear [nzShowSearch]="true" [nzPlaceHolder]="'Room'"
+    class="select" [ngModel]="filter" (ngModelChange)="handleFilterChange('room', $event)">
+    <nz-option *ngFor="let room of filters?.rooms" [nzValue]="room" [nzLabel]="room"></nz-option>
+  </nz-select>
+
+  <input *ngIf="filters; else loading" nz-input class="input" placeholder="Min Price" [ngModel]="filter"
+    (ngModelChange)="handleFilterChange('min_price', $event)" />
+  <input *ngIf="filters; else loading" nz-input class="input" placeholder="Max Price" [ngModel]="filter"
+    (ngModelChange)="handleFilterChange('max_price', $event)" />
+  <input *ngIf="filters; else loading" nz-input class="input" placeholder="Min Area" [ngModel]="filter"
+    (ngModelChange)="handleFilterChange('min_area', $event)" />
+  <input *ngIf="filters; else loading" nz-input class="input" placeholder="Max Area" [ngModel]="filter"
+    (ngModelChange)="handleFilterChange('max_area', $event)" />
+
+  <ng-template #loading>
+    <nz-skeleton-element class="skeleton-element" nzType="input"></nz-skeleton-element>
+  </ng-template>
+</div>

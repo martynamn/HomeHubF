@@ -23,7 +23,7 @@ export class PropertyService {
         params = params.append(param.key, param.value);
       });
     }
-    return this.httpClient.get<PropertyType[]>(`${this.API_URI}property/`, { params: params })
+    return this.httpClient.get<PropertyType[]>(`${this.API_URI}property`, { params: params })
   }
 
   saveProperty(formData: FormData) {

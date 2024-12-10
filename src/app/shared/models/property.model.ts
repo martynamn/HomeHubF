@@ -10,7 +10,7 @@ export interface PropertyType {
   adType: string
   telephoneNumber: string
   address: AddressType
-  image: ImageType
+  images: ImageType[]
 }
 
 export interface AddressType {
