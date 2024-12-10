@@ -1,0 +1,110 @@
+.container {
+  padding: 1.6rem;
+
+  .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .8rem;
+
+    .title {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .price {
+      color: #475BE8;
+      font-size: 24px;
+      margin: 0;
+    }
+  }
+
+  .phone {
+    display: flex;
+    justify-content: flex-end;
+    margin: .8rem 0;
+    font-size: 16px;
+
+    .icon {
+      padding: 0 8px;
+    }
+
+    .description {
+      margin: 0;
+    }
+
+    .phone-description {
+      margin: 0;
+    }
+
+    .phone-description:hover {
+      color: #475BE8;
+      cursor: pointer;
+    }
+  }
+  
+  .location-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    gap: 5px;
+
+    .icon {
+      width: 24px;
+    }
+
+    .location {
+      margin: 0;
+      font-weight: 400;
+      font-size: 16px;
+      color: #808191;
+    }
+  }
+
+  .square-price {
+    font-size: 18px;
+    font-weight: 600;
+    text-wrap: nowrap;
+  }
+
+  .tile-details {
+    max-width: 100%;
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .details-content {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        padding: 0 .5rem;
+      }
+
+      .description {
+        width: 100%;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.field-name {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 0.4rem 0 0;
+}
+
+.description-text {
+  white-space: wrap;
+}
+
+.home-icon {
+  padding: .5rem;
+}
+
+.main-info {
+  display: flex;
+  justify-content: space-between;
+}

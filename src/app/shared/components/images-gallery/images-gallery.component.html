@@ -1,0 +1,15 @@
+<nz-modal [(nzVisible)]="isVisible" class="gallery" (nzOnCancel)="close.emit(false)"
+          [nzWidth]="1000" [nzFooter]="null" [nzCloseIcon]="customCloseIconTemplate">
+  <ng-container *nzModalContent>
+    <div class="keen-slider" #sliderRef>
+      <img *ngFor="let image of images; let i= index" class="keen-slider__slide number-slide{{i}}" [src]="image"/>
+    </div>
+    <div class="keen-slider thumbnail" #thumbnailRef>
+      <img *ngFor="let image of images; let i= index" class="keen-slider__slide number-slide{{i}}" [src]="image"/>
+    </div>
+  </ng-container>
+</nz-modal>
+<ng-template #customCloseIconTemplate>
+  <div class="close">
+    <a class="close-gallery">{{ 'Close' | translate }}<span nz-icon nzType="close" nzTheme="outline"></span></a></div>
+</ng-template>

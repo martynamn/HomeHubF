@@ -6,4 +6,9 @@ export const ALL_MENU_OPTIONS: SidebarOption[] = [
     icon: 'appstore',
     path: '/dashboard',
   },
+  {
+    name: 'Property',
+    icon: 'appstore',
+    path: '/property',
+  },
 ]

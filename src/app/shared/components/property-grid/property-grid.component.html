@@ -1,0 +1,17 @@
+<div class="container">
+  <img class="photo" (click)="isGalleryOpen = true" [src]="sanitizedImageData[0]">
+  <div class="square-images">
+    <img class="photo" (click)="isGalleryOpen = true" [src]="sanitizedImageData[1]">
+    <span class="photo" (click)="isGalleryOpen = true">
+      <img [src]="sanitizedImageData[2]">
+      <span class="text">+{{ sanitizedImageData.length - 3}} 
+        <span *ngIf="sanitizedImageData.length > 4">{{ 'images' | translate }}</span>
+        <span *ngIf="sanitizedImageData.length === 4">{{ 'image' | translate }}</span>
+      </span>
+    </span>
+  </div>
+</div>
+
+<div class="photoAlbum" *ngIf="isGalleryOpen">
+  <app-images-gallery [images]="sanitizedImageData" (close)="isGalleryOpen = false"></app-images-gallery>
+</div>

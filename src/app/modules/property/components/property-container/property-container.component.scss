@@ -1,0 +1,34 @@
+@import "src/assets/styles/variables.scss";
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 1rem 0;
+  }
+
+  .new-property {
+    border-radius: 10px;
+    background-color: var(--sidebar-menu-lighter-background-color);
+  }
+}
+
+.container {
+  background: var(--app-white);
+  border-radius: 12px;
+}
+
+.loader{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+nz-pagination {
+  text-align: end;
+  padding: 1rem;
+}

@@ -1,0 +1,70 @@
+@import "src/assets/styles/variables.scss";
+
+.gallery {
+  width: 60vw
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  background: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 500;
+  max-height: 800px;
+  max-width: 600px;
+}
+
+.thumbnail .keen-slider__slide {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  height: 150px;
+}
+
+.thumbnail .keen-slider__slide {
+  cursor: pointer;
+}
+
+.thumbnail .keen-slider__slide.active {
+  border: 2px dashed black;
+}
+
+.close {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  height: fit-content;
+  margin: -0.5rem 0 2rem -2rem;
+  width: 100%;
+
+  a:hover {
+    color: var(--sidebar-menu-lighter-background-color);
+  }
+}
+
+.close-gallery {
+  display: flex;
+  font-weight: 600;
+  height: fit-content;
+  color: #000000;
+
+  span {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+}
+
+.keen-slider.ng-star-inserted {
+  margin-top: .6rem;
+}
+
+.close { 
+  width: auto;
+  margin-right: 1.5rem;
+}
