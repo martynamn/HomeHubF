@@ -9,7 +9,7 @@
       <img class="icon" [src]="IconPath.LOCATION"/>
       <p class="location">{{property.address.city}}, {{property.address.country}}</p>
     </div>
-      <span class="square-price">{{ (property.price / property.address.area).toFixed(0) }} $/m<sup>2</sup></span>
+      <span class="square-price">{{ (property.price / property.area).toFixed(0) }} $/m<sup>2</sup></span>
   </div>
   <div class="phone">
     <img class="icon" [src]="IconPath.TELEPHONE"/>
@@ -20,7 +20,7 @@
     <div class="details-content">
       <img class="icon" [src]="IconPath.AREA"/>
       <p class="field-name">{{ 'Area' | translate }}: </p>
-      <p class="description"> {{property.address.area}}</p>
+      <p class="description"> {{property.area}}</p>
     </div>
     <div class="details-content">
       <img class="icon" [src]="IconPath.BED"/>
