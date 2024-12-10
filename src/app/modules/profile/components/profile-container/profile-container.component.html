@@ -1,0 +1,47 @@
+<div class="title-container">
+  <h2 class="title">{{ 'Active Advertisements' | translate }}</h2>
+  <button class="new-property" nz-button nzType="primary" routerLink="/property/new">
+    <i nz-icon nzType="plus"></i>
+    {{ 'Add Property' | translate }}
+  </button>
+</div>
+<div class="container">
+  <app-filter [userId]="userId" (filterChanged)="handleFilterChanged($event)"></app-filter>
+  <ng-container *ngIf="paginationLength$ | async as propertiesLength; else noData">
+    <ng-container *ngIf="properties$ | async as properties; else loading">
+      <app-property-card (filterChanged)="handleFilterChanged($event)" [properties]="properties"></app-property-card>
+      <nz-pagination 
+        [nzPageIndex]="pageIndex" 
+        [nzTotal]="propertiesLength" 
+        nzShowSizeChanger 
+        [nzPageSize]="pageSize"
+        (nzPageIndexChange)="pageIndex = $event; handlePaginationChange()"
+        (nzPageSizeChange)="pageSize = $event; handlePaginationChange()"
+      ></nz-pagination>
+    </ng-container>
+  </ng-container>
+  <ng-template #loading>
+    <nz-spin class="loader" nzSize="large" nzSimple></nz-spin>
+  </ng-template>
+
+  <ng-template #noData>
+    <nz-empty
+    class="empty"
+    [nzNotFoundImage]="IconPath.REAL_ESTATE"
+    [nzNotFoundContent]="contentTpl"
+    [nzNotFoundFooter]="footerTpl"
+  >
+    <ng-template #contentTpl>
+      <span class="empty-content">{{ 'No Active Advertisements' | translate }}</span>
+    </ng-template>
+    <ng-template #footerTpl>
+      <button class="new-property" nz-button nzType="primary" routerLink="/property/new">
+        <i nz-icon nzType="plus"></i>
+        {{ 'Add Property' | translate }}
+      </button>
+    </ng-template>
+  </nz-empty>
+  </ng-template>
+</div>
+
+

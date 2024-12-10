@@ -11,6 +11,7 @@ export interface PropertyType {
   telephoneNumber: string
   address: AddressType
   images: ImageType[]
+  area: number
 }
 
 export interface AddressType {
@@ -18,7 +19,6 @@ export interface AddressType {
   city: string
   floor: number
   postcode: string
-  area: number
 }
 
 export interface ImageType {

@@ -18,6 +18,11 @@ const routes: Routes = [
         loadChildren: () => import('../../modules/property/property.module').then(m => m.PropertyModule),
         data: { authorities: [], isRootPath: false },
       },
+      {
+        path: 'profile',
+        loadChildren: () => import('../../modules/profile/profile.module').then(m => m.ProfileModule),
+        data: { authorities: [], isRootPath: false },
+      },
     ]
   }
 ]
