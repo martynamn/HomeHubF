@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { KeyCloakTokenResult, TokenParsed } from '../types/authTypes';
+import { UserRoles } from '../models/user.model';
 
 declare let Keycloak: any;
 
@@ -67,25 +68,13 @@ export class KeycloakService {
     return KeycloakService.keycloakAuthObject.tokenParsed.sub;
   }
 
-  // static getRole(): string {
-  //   if (KeycloakService.keycloakAuthObject) {
-  //     const roles: string[] = (<string[]>KeycloakService.keycloakAuthObject.tokenParsed.realm_access.roles).map(role => role.toUpperCase());
-  //     const matchedRoles: string[] = [];
-  //     for (let i = 0; i < roles.length; i++) {
-  //       if (typeof (RolesEnum[RolesEnum[roles[i] as keyof typeof RolesEnum]]) !== 'undefined') {
-  //         matchedRoles.push(roleNamesMapping[RolesEnum[roles[1] as keyof typeof RolesEnum]].name);
-  //         matchedRoles.push('user-role-admin');
-  //       }
-  //     }
-  //     if (matchedRoles.length === 0) {
-  //       return roleNamesMapping[RolesEnum.UNKNOWN].name;1
-  //     } else {
-  //       return matchedRoles.join(', ');
-  //     }
-  //   } else {
-  //     return roleNamesMapping[RolesEnum.NOT_LOGGED].name;
-  //   }
-  // }
+  isAdmin() {
+    return KeycloakService.keycloakAuthObject.tokenParsed?.resource_access['frontend-test']?.roles?.includes(UserRoles.ADMIN);
+  }
+
+  getUserRoles() {
+    return KeycloakService.keycloakAuthObject.tokenParsed?.resource_access['frontend-test']?.roles;
+  }
 
   static getFullName(): string {
     return KeycloakService.keycloakAuthObject.tokenParsed.name;

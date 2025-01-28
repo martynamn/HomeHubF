@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { KeycloakService } from 'src/app/shared/auth/keycloak.service';
 import { filterData } from 'src/app/shared/components/filter/filter.model';
@@ -19,9 +20,11 @@ export class ProfileContainerComponent {
   userId: string = this.keycloakService.getUserId()
   pageIndex: number = 1
   pageSize: number = 10
-  userParam: UserParam[] = [{ key: 'user_id', value: this.keycloakService.getUserId() }]
+  readonly route = inject(ActivatedRoute)
+  readonly user_id = this.route.snapshot.params['id']
+  userParam: UserParam[] = [{ key: 'userId',value: this.user_id ?? this.keycloakService.getUserId() }]
   properties$: Observable<PropertyType[]> = this.propertyService.getProperties(this.pageIndex, this.pageSize, this.userParam)
-  paginationLength$: Observable<number> = this.paginationService.getPropertyLength(this.keycloakService.getUserId())
+  paginationLength$: Observable<number> = this.paginationService.getPropertyLength(this.user_id ?? this.keycloakService.getUserId())
   constructor(
     private readonly propertyService: PropertyService,
     private readonly paginationService: PaginationService,

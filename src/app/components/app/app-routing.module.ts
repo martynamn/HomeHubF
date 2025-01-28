@@ -19,6 +19,11 @@ const routes: Routes = [
         data: { authorities: [], isRootPath: false },
       },
       {
+        path: 'agent',
+        loadChildren: () => import('../../modules/agent/agent.module').then(m => m.AgentModule),
+        data: { authorities: [], isRootPath: false },
+      },
+      {
         path: 'profile',
         loadChildren: () => import('../../modules/profile/profile.module').then(m => m.ProfileModule),
         data: { authorities: [], isRootPath: false },

@@ -7,7 +7,7 @@
     <app-revenue-chart [chartData]="chartData"></app-revenue-chart>
   </div>
 </ng-container>
-<div *ngIf="lastProperties$ | async as lastProperties">
+<div class="latest-properties" *ngIf="lastProperties$ | async as lastProperties">
   <app-latest-properties [lastProperties]="lastProperties"></app-latest-properties>
 </div>
 

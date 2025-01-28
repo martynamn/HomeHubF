@@ -8,8 +8,13 @@ export const ALL_MENU_OPTIONS: SidebarOption[] = [
   },
   {
     name: 'Property',
-    icon: 'appstore',
+    icon: 'shop',
     path: '/property',
+  },
+  {
+    name: 'Agent',
+    icon: 'team',
+    path: '/agent',
   },
   {
     name: 'Profile',

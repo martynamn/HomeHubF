@@ -1,7 +1,7 @@
 <div class="latest-property-container">
   <div class="header">
     <h3 class="latest-added">{{ 'Latest added' | translate }}</h3>
-    <button routerLink="/profile" class="show-more" nz-button nzType="link">
+    <button routerLink="/profile/{{lastProperties![0].userId}}" class="show-more" nz-button nzType="link">
       {{ 'show more' | translate }}
       <span nz-icon nzType="right"></span>
     </button>

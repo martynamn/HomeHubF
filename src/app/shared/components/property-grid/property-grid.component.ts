@@ -28,6 +28,6 @@ export class PropertyGridComponent {
   constructor(private readonly sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.property.images.forEach(image => this.sanitizedImageData.push(this.sanitizer.bypassSecurityTrustUrl(image.imageData.replace(/,\\n$/, ''))))
+    this.property.images.forEach(image => this.sanitizedImageData.push(this.sanitizer.bypassSecurityTrustUrl('data:image/jpeg;base64,' + image.imageData.replace(/,\\n$/, ''))))
   }
 }

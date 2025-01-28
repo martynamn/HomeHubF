@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <img class="img" [src]="agent.images[0].imageData | base64ToFile" alt="avatar">
+  <div class="details-container">
+    <div class="codes">
+      <span class="code">{{'Name' | translate}}</span>
+      <span class="code">{{'Last Name' | translate}}</span>
+      <span class="code">{{'City' | translate}}</span>
+      <span class="code">{{'Country' | translate}}</span>
+      <span class="code">{{'Gender' | translate}}</span>
+      <span class="code">{{'Phone' | translate}}</span>
+      <span class="code">{{'Email' | translate}}</span>
+    </div>
+    <div class="values">
+      <span class="value">{{agent.firstName}}</span>
+      <span class="value">{{agent.lastName}}</span>
+      <span class="value">{{agent.country}}</span>
+      <span class="value">{{agent.city}}</span>
+      <span class="value">{{agent.telephoneNumber}}</span>
+      <span class="value">{{agent.gender}}</span>
+      <span class="value">{{agent.email}}</span>
+  </div>
+</div>

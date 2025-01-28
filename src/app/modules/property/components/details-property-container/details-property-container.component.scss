@@ -3,13 +3,14 @@
 .title {
   font-size: 28px;
   font-weight: 600;
+  padding: 0;
   margin: 1rem 0;
   background-color: transparent;
   border: none;
 }
 
 .header {
-  margin-top: 2rem;
+  // margin-top: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
