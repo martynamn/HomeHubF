@@ -65,7 +65,10 @@ export class NewPropertyContainerComponent implements OnDestroy {
         this.propertyId = param.id
         return param.id ? this.propertyService.getPropertyInfo(param.id) : of()
       }),
-      tap(property => this.propertyForm.patchValue(property)),
+      tap(property =>{
+        this.propertyForm.patchValue(property)
+        this.propertyForm.patchValue(property.address)
+      }),
       takeUntil(this.destroy$)
     ).subscribe()
   }

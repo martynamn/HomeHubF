@@ -16,18 +16,21 @@ export class PropertyService {
     return this.httpClient.get<PropertyType>(`${this.API_URI}property/${propertyId}`)
   }
 
-  getProperties(pageIndex: number, pageSize: number, filterParams?: filterData[]): Observable<PropertyType[]> {
+  getProperties(pageIndex: number, pageSize: number, filterParams?: filterData[], userId?: string): Observable<PropertyType[]> {
     let params = new HttpParams().append('index', pageIndex).append('limit', pageSize)
     if (filterParams?.length) {
       filterParams.forEach(param => {
         params = params.append(param.key, param.value);
       });
     }
+    if (userId) {
+      params = params.append('userId', userId);
+    }
     return this.httpClient.get<PropertyType[]>(`${this.API_URI}property`, { params: params })
   }
 
   saveProperty(formData: FormData) {
-    return this.httpClient.post<PropertyType[]>(`${this.API_URI}property`, formData)
+    return this.httpClient.post<PropertyType[]>(`${this.API_URI}properties`, formData)
   }
 
   getLastProperties(userParam: UserParam, numberOfProperties: number): Observable<PropertyType[]> {
@@ -36,16 +39,16 @@ export class PropertyService {
   }
 
   updateProperty(id: string, formData: FormData) {
-    return this.httpClient.put<any>(`${this.API_URI}property/${id}`, formData)
+    return this.httpClient.put<any>(`${this.API_URI}properties/update/${id}`, formData)
   }
 
 
   soldProperty(property: PropertyType) {
-    return this.httpClient.put(`${this.API_URI}property/${property._id}/sold`, property)
+    return this.httpClient.put(`${this.API_URI}properties/sold/${property._id}`, property)
   }
 
   deleteProperty(property: PropertyType) {
-    return this.httpClient.delete(`${this.API_URI}property/${property._id}`)
+    return this.httpClient.delete(`${this.API_URI}properties/delete/${property._id}`)
   }
 
 

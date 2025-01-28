@@ -26,8 +26,7 @@ export class PropertyTileComponent implements OnInit {
   constructor(private readonly sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    console.log("this.property", this.property);
-    this.sanitizedImageData = this.sanitizer.bypassSecurityTrustUrl(this.property.images[0].imageData.replace(/,\\n$/, ''))
+    this.sanitizedImageData = this.sanitizer.bypassSecurityTrustUrl('data:image/jpeg;base64,' + this.property.images[0].imageData)
   }
 
 }

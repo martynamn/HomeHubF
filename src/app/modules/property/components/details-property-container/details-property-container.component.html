@@ -4,7 +4,7 @@
       <span nz-icon nzType="left" nzTheme="outline"></span>
       {{'Details' | translate}}
     </a>
-    <ng-container *ngIf="userId === property.userId">
+    <ng-container *ngIf="userId === property.userId || isAdmin">
       <div class="buttons">
         <button nz-button nz-tooltip nzSize="large"
           nzTooltipTitle="{{ 'Edit this property' | translate }}"

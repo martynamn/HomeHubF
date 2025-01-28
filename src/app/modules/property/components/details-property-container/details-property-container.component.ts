@@ -26,7 +26,7 @@ export class DetailsPropertyContainerComponent implements OnDestroy {
   private readonly destroy$ = new Subject<void>()
   property$!: Observable<PropertyType>
   userId: string = this.keycloackService.getUserId()
-
+  isAdmin: boolean = this.keycloackService.isAdmin()
   constructor(
     private readonly propertyService: PropertyService,
     private readonly route: ActivatedRoute,

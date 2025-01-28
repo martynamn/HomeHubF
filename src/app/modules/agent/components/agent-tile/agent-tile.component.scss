@@ -1,0 +1,44 @@
+@import '../../../../../assets//styles//variables.scss';
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.tile-container {
+  display: flex;
+  background-color: #ffffff;
+  padding: .8rem;
+  border-radius: 10px;
+  cursor: pointer;
+  .profile-image {
+    border-radius: 10px;
+    max-width: 250px;
+    max-height: 200px;
+  }
+  .description-container{
+    padding: 0 .8rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .agent-details {
+     display: flex; 
+     justify-content: space-between;
+     .details {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      .detail {
+        display: flex;
+        gap: .5rem;
+        .icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+     }
+    }
+  }
+}

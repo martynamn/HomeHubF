@@ -27,7 +27,6 @@ export class AuthInterceptor implements HttpInterceptor {
       return tokenObservable.pipe(
         concatMap(tokenResult => {
           if (tokenResult.success === true) {
-            if (this.DEBUG_MODE) {console.log('API with token', tokenResult); }
             if (environment.authConfig.authHttp === true) {
               const clonedReq = req.clone({
                 headers: req.headers.append('Authorization', 'Bearer ' + tokenResult.token)

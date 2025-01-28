@@ -12,7 +12,7 @@ export class PaginationService {
   getPropertyLength(userId?: string): Observable<number> {
     let params = new HttpParams()
     if (userId) {
-      params = params.append('user_id', userId);
+      params = params.append('userId', userId);
     }
     return this.httpClient.get<number>(`${this.API_URI}property`, { params: params })
   }

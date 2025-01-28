@@ -1,0 +1,16 @@
+@import '../../../../../assets//styles//variables.scss';
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.profile-wrapper {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.latest-properties {
+  margin-top: 1rem;
+}

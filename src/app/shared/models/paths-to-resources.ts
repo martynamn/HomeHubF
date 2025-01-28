@@ -12,5 +12,8 @@ export enum IconPath {
   AVATAR_ICON = '../../../assets/icons/avatar.svg',
   TELEPHONE = '../../../assets/icons/telephone.svg',
   FLOOR = '../../../assets/icons/floor.svg',
-  TYPE = '../../../assets/icons/type.svg'
+  TYPE = '../../../assets/icons/type.svg',
+  MAIL = '../../../assets/icons/mail.svg',
+  AGENCY = '../../../assets/icons/agency.svg',
+  CHECK = '../../../assets/icons/check.svg',
 }

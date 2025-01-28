@@ -1,0 +1,43 @@
+@import '../../../../../assets//styles//variables.scss';
+.wrapper{
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid #E4E4E4;
+    h3 {
+      margin: 0;
+    }
+    .premuium-btn {
+      height: 40px;
+    }
+  }
+  .description {
+    display: block;
+    width: 80%;
+    margin: 1rem 0;
+  }
+  .details{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+  .icons,.codes, .values{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    .code, .value {
+      display: flex;
+    }
+    .value {
+      gap: 1.5rem;
+    }
+  }
+  .codes {
+    margin-right: 5rem;
+  }
+}

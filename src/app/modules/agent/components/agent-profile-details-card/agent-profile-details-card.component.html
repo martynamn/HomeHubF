@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="header">
+    <h3>{{'Agent Details' | translate}}</h3>
+      <button *ngIf="agent.premium" class="premuium-btn" nz-button nzType="primary">
+        <span class="icon" nz-icon nzType="fire" nzTheme="outline"></span>
+        {{'Premium' | translate}}
+      </button>
+      <button *ngIf="!agent.premium" class="premuium-btn" nz-button nzType="primary" (click)="handleUpgradePremium.emit(agent)">{{'Upgrade to premium' | translate}}</button>
+  </div>
+  <span class="description">{{agent.description}}</span>
+
+  <div class="details">
+    <div class="icons">
+      <img [src]="IconPath.CHECK">
+      <img [src]="IconPath.CHECK">
+    </div>
+
+    <div class="codes ">
+      <span class="code">{{'Agency' | translate}}</span>
+      <span class="code">{{'Agent license' | translate}}</span>
+    </div>
+
+    <div class="values">
+      <span class="value">
+        <span class="colon">:</span>
+        {{agent.agencyName}}
+      </span>
+      <span class="value">
+        <span class="colon">:</span>
+        {{agent.agentLicenseId}}
+      </span>
+    </div>
+</div>

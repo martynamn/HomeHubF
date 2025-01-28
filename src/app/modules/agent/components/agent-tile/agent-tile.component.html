@@ -1,0 +1,39 @@
+<h2 class="title">{{ 'Agents List' | translate }}</h2>
+<ng-container *ngFor="let agent of agents">
+  <div class="tile-container" (click)="navigateToAgentProfile(agent)">
+    <div>
+      <img class="profile-image" [src]="agent.images[0].imageData | base64ToFile" />
+    </div>
+    
+    <div class="description-container">
+
+    <div class="">
+      <h3>{{agent.firstName}} {{agent.lastName}}</h3>
+      <span>{{agent.description}}</span>
+    </div>
+    
+    <div class="agent-details">
+      <div class="details">
+        <div class="detail">
+          <img class="icon" [src]="IconPath.MAIL" alt="upload" />
+          <span>{{agent.email}}</span>
+        </div>
+        <div class="detail">
+          <img class="icon" [src]="IconPath.TELEPHONE" alt="upload" />
+          <span>{{agent.telephoneNumber}}</span>
+        </div>
+      </div>
+      <div class="details">
+        <div class="detail">
+          <img class="icon" [src]="IconPath.LOCATION" alt="upload" />
+          <span>{{agent.country}} {{agent.city}}</span>
+        </div>
+        <div class="detail">
+          <img class="icon" [src]="IconPath.AGENCY" alt="upload" />
+          <span>{{agent.agencyName}}</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</ng-container>

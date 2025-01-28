@@ -1,0 +1,18 @@
+<h2 class="title">{{ 'Agents Details' | translate }}</h2>
+<ng-container *ngIf="agent$ | async as agent">
+  <div class="profile-wrapper">
+    <app-agent-profile-card [agent]="agent">
+    </app-agent-profile-card>
+    <div>
+      <app-agent-profile-details-card 
+        [agent]="agent"
+        (handleUpgradePremium)="handleUpgradePremium($event)"
+        >
+      </app-agent-profile-details-card>
+      <div class="latest-properties" *ngIf="lastProperties$ | async as lastProperties">
+        <app-latest-properties [lastProperties]="lastProperties"></app-latest-properties>
+      </div>
+    </div>
+
+  </div>
+</ng-container>

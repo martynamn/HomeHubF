@@ -13,7 +13,7 @@ export class FilterService {
   getFilterByParam(param?: filterData[], userId?: string): Observable<filterType> {
     let params = new HttpParams()
     if (userId) {
-      params = params.append('user_id', userId);
+      params = params.append('userId', userId);
     }
     if (param?.length) {
       param.forEach(param => params = params.append(param.key, param.value));
